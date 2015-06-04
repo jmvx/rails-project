@@ -1,0 +1,10 @@
+<h1> <%= @user.name %> </h1>
+<% if @user.response == "no" %>
+<p> Sorry you cannot make it!</p>
+<% elsif @user.response == "maybe" %>
+<p>Hope you can make it!</p>
+<% else %>
+<p> Glad you can make it!</p>
+<% end %>
+
+<%= link_to 'View Guest List', users_path %>

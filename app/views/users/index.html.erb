@@ -1,0 +1,14 @@
+<h1>Guest List</h1>
+<%= link_to 'Go Back', new_user_path %> <br />
+<div id="guest_list">
+    <div class="guest">
+        <div class="title names">Names</div>
+        <div class="title responses">Responses</div>
+    </div>
+    <% @users.each do |user| %>
+    <div class="guest">
+        <div class="names"><%= user.name %></div>
+        <div class="responses"><%= user.response %></div>
+    </div>
+    <% end %>
+</div>

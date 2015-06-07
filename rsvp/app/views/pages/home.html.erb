@@ -4,6 +4,9 @@
 <% if @guests.empty? %>
 <p>There are no guests attending this event, yet!</p>
 <% else %>
+<p><%= Guest.where(response: 'yes').count %> guests are attending!</p>
+<p><%= Guest.where(response: 'maybe').count %> guests might be attending!</p>
+<p><%= Guest.where(response: 'No').count %> guests are not attending!</p>
 <table>
 	<tr>
 		<th>Name</th>

@@ -6,21 +6,21 @@
 
 <div id="response">
 <h1><%= f.label :response, 'Are you planning to attend?'%></h1>
-<%= f.radio_button :response, 'yes' %>
+<%= f.radio_button :response, 'Yes' %>
 <%= f.label :response, 'Yes, I can attend', :value => 'yes' %> <br />
-<%= f.radio_button :response, 'no' %>
-<%= f.label :response, 'No, I cannot attend', :value => 'no' %> <br />
-<%= f.radio_button :response, 'maybe' %>
+<%= f.radio_button :response, 'Maybe' %>
 <%= f.label :response, 'I might be able to attend', :value => 'maybe' %> <br />
+<%= f.radio_button :response, 'No' %>
+<%= f.label :response, 'No, I cannot attend', :value => 'no' %> <br />
 </div>
 
 <div id="carpool">
 <h1><%= f.label :response, 'Can you provide a carpool?'%></h1>
-<%= f.radio_button :carpool, 'provide' %>
+<%= f.radio_button :carpool, 'I can provide a carpool' %>
 <%= f.label :response, 'I can provide a carpool', :value => 'provide' %> <br />
-<%= f.radio_button :carpool, 'need' %>
+<%= f.radio_button :carpool, 'I need a carpool' %>
 <%= f.label :response, 'I need a carpool', :value => 'need' %> <br />
-<%= f.radio_button :carpool, 'neither' %>
+<%= f.radio_button :carpool, 'I do not need a ride' %>
 <%= f.label :response, 'I do not need a ride', :value => 'neither' %> <br />
 </div>
 

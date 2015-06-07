@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Rsvp</title>
+  <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag "style.css" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,6 +12,14 @@
 <body>
     <div id="container">
     <div id="title">LLVM Bay-Area Social, May 2015</div>
+    <div id="information">
+        <div id="when">Thursday, May 7 at 7 pm</div>
+        <a href="http://tiedhouse.com/" target="_blank"><div id="where">
+            Tied House <br />
+            954 Villa Street <br />
+            Mountain View, CA 94041
+        </div></a>
+    </div>
 
         <%= yield %>
     

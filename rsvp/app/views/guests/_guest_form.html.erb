@@ -1,32 +1,34 @@
 <%= form_for Guest.new do |f| %>
-<div id="name">
-<h1><%= f.label :name, 'What is your name?'%></h1>
-<%= f.text_field :name %>
-</div>
+<div id="form">
+    <div class="form_section">
+        <h1 class="form_heading" style="display:inline; margin-right:10px;"><%= f.label :name, 'What is your name?'%></h1>
+        <%= f.text_field :name, :required => true %>
+    </div>
 
-<div id="response">
-<h1><%= f.label :response, 'Are you planning to attend?'%></h1>
-<%= f.radio_button :response, 'Yes' %>
-<%= f.label :response, 'Yes, I can attend', :value => 'yes' %> <br />
-<%= f.radio_button :response, 'Maybe' %>
-<%= f.label :response, 'I might be able to attend', :value => 'maybe' %> <br />
-<%= f.radio_button :response, 'No' %>
-<%= f.label :response, 'No, I cannot attend', :value => 'no' %> <br />
-</div>
+    <div class="form_section">
+        <h1 class="form_heading"><%= f.label :response, 'Are you planning to attend?'%></h1>
+        <%= f.radio_button :response, 'Yes', :checked => true %>
+        <%= f.label :response, 'Yes, I can attend', :value => 'yes' %> <br />
+        <%= f.radio_button :response, 'Maybe' %>
+        <%= f.label :response, 'I might be able to attend', :value => 'maybe' %> <br />
+        <%= f.radio_button :response, 'No' %>
+        <%= f.label :response, 'No, I cannot attend', :value => 'no' %> <br />
+    </div>
 
-<div id="carpool">
-<h1><%= f.label :response, 'Can you provide a carpool?'%></h1>
-<%= f.radio_button :carpool, 'I can provide a carpool' %>
-<%= f.label :response, 'I can provide a carpool', :value => 'provide' %> <br />
-<%= f.radio_button :carpool, 'I need a carpool' %>
-<%= f.label :response, 'I need a carpool', :value => 'need' %> <br />
-<%= f.radio_button :carpool, 'I do not need a ride' %>
-<%= f.label :response, 'I do not need a ride', :value => 'neither' %> <br />
-</div>
+    <div class="form_section">
+        <h1 class="form_heading"><%= f.label :response, 'Can you provide a carpool?'%></h1>
+        <%= f.radio_button :carpool, 'Does not need a ride', :checked => true  %>
+        <%= f.label :response, 'I do not need a ride', :value => 'neither' %> <br />
+        <%= f.radio_button :carpool, 'Needs a ride' %>
+        <%= f.label :response, 'I will need a ride', :value => 'need' %> <br />
+        <%= f.radio_button :carpool, 'Can provide a ride' %>
+        <%= f.label :response, 'I can provide a carpool', :value => 'provide' %> <br />
+    </div>
 
-<div id="note">
-<h1><%= f.label :note, 'Anything else you would like to add?'%></h1>
-<%= f.text_area :note %>
+    <div class="form_section">
+        <h1 class="form_heading"><%= f.label :note, 'Anything else you would like to add?'%></h1>
+        <%= f.text_area :note, :placeholder => 'Contact information for carpools?',:size => "73x5" %>
+    </div>
 </div>
 
 <%= f.submit 'RSVP' %>

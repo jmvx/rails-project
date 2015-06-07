@@ -1,25 +1,39 @@
 <%= render partial: "guests/guest_form", locals: { guest: @guest } %>
 
+<div id="guest_summary">
 <h1>Guest List</h1>
 <% if @guests.empty? %>
 <p>There are no guests attending this event, yet!</p>
 <% else %>
-<p><%= Guest.where(response: 'yes').count %> guests are attending!</p>
-<p><%= Guest.where(response: 'maybe').count %> guests might be attending!</p>
-<p><%= Guest.where(response: 'No').count %> guests are not attending!</p>
+    <p>There 
+    <% if Guest.where(response: 'Yes').count > 1 %> 
+        are <%= Guest.where(response: 'Yes').count %> guests 
+    <% else %> 
+        is <%= Guest.where(response: 'Yes').count %> guest 
+    <% end %> 
+    attending. 
+    <% if Guest.where(response: 'Maybe').count != 0 %>
+        <% if Guest.where(response: 'Maybe').count > 1 %> 
+            There are <%= Guest.where(response: 'Maybe').count %> guests 
+        <% else %> 
+            There is <%= Guest.where(response: 'Maybe').count %> guest 
+        <% end %> 
+        who might attend.</p>
+    <% end %>
+</div>
 <table>
 	<tr>
-		<th>Name</th>
-		<th>Response</th>
-		<th>Carpool</th>
-		<th>Note</th>
+		<th class="name">Name</th>
+		<th class="response">Response</th>
+		<th class="carpool">Carpool</th>
+		<th class="note">Note</th>
 	</tr>
 	<% @guests.each do |guest| %>
 	<tr>
-		<td> <%=  guest.name %> </td>
-		<td> <%=  guest.response %> </td>
-		<td> <%=  guest.carpool %> </td>
-		<td> <%=  guest.note %> </td>
+		<td class="name"> <%=  guest.name %> </td>
+		<td class="response"> <%=  guest.response %> </td>
+		<td class="carpool"> <%=  guest.carpool %> </td>
+		<td class="note"> <%=  guest.note %> </td>
 	</tr>
 	<% end %>
 </table>

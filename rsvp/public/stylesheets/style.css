@@ -1,0 +1,26 @@
+#container {
+    width:800px;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px solid red;
+}
+
+#name, #response, #carpool, #note {
+    width:400px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    border:1px solid green;
+    padding:20px;
+}
+
+h1 {
+    font-size:15pt;
+}
+
+#title {
+    font-size:20pt;
+    font-weight:bold;
+    text-align:center;
+    margin:10px;
+}

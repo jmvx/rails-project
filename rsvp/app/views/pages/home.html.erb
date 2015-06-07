@@ -1,0 +1,23 @@
+<%= render partial: "guests/guest_form", locals: { guest: @guest } %>
+
+<h1>Guest List</h1>
+<% if @guests.empty? %>
+<p>There are no guests attending this event, yet!</p>
+<% else %>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Response</th>
+		<th>Carpool</th>
+		<th>Note</th>
+	</tr>
+	<% @guests.each do |guest| %>
+	<tr>
+		<td> <%=  guest.name %> </td>
+		<td> <%=  guest.response %> </td>
+		<td> <%=  guest.carpool %> </td>
+		<td> <%=  guest.note %> </td>
+	</tr>
+	<% end %>
+</table>
+<% end %>

@@ -14,8 +14,28 @@ body {
     font-weight:bold;
 }
 
+a {
+    text-decoration:none;
+    color:#0065BD;
+}
+
 #title {
     font-size:30pt;
+}
+
+#information {
+    background: rgba(255, 255, 255, 0.7);
+    border:1px solid white;
+    padding:10px;
+    margin:0 auto 0 auto;
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:bold;
+    width:520px;
+}
+
+#when {
+    margin-bottom:10px;
 }
 
 #container {
@@ -88,7 +108,7 @@ th, tr {
 }
 
 th {
-    background-color:black;
+    background: rgba(0, 0, 0, 0.7);
     color:white;
     border:none;
 }

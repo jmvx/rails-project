@@ -9,17 +9,15 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       if @guest.save
-        # Tell the UserMailer to send a welcome Email after save
-        UserMailer.welcome_email(@guest).deliver
-        format.html { redirect_to(@guest) }
-        format.json { render :json => @guest }
+        GuestMailer.guest_email(@guest).deliver_now
+        format.html { redirect_to root_path }
+        format.text { redirect_to root_path }
       end
     end
 	end
   
   def show
     @guest = Guest.find(params[:id])
-    redirect_to root_path
   end
 
 	private

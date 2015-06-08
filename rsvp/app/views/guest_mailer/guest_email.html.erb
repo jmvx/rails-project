@@ -4,13 +4,8 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1><%= @guest.name %> just responded!</h1>
-    <ul style="padding:20px; margin:20px;">
-        <li style="list-style-type:none;">Name: <%= @guest.name %></li>
-        <li style="list-style-type:none;">Response: <%= @guest.response %></li>
-        <li style="list-style-type:none;">Carpool: <%= @guest.carpool %></li>
-        <li style="list-style-type:none;">Notes: <%= @guest.note %></li>
-    </ul>
+    <h1><%= Guest.where(response: 'Yes').count %> plan on attending. </h1>
+    <h1><%= Guest.where(response: 'Maybe').count %> might attend. </h1> 
     
     <%= image_tag attachments['DragonMedium.png'].url %>
     

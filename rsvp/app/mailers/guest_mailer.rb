@@ -1,10 +1,10 @@
 class GuestMailer < ApplicationMailer
-  default :from => 'julia@jmv.me'
+  default :from => 'someone@something.com'
   
   def guest_email(guest)
     @guest = guest
     attachments.inline['DragonMedium.png'] = File.read('public/images/DragonMedium.png')
-    mail(:to => 'jmvancleve@gmail.com', :subject => '[LLVM SOCIAL] RSVP Notification ')
+    mail(:to => 'someone_else@something.com', :subject => '[LLVM SOCIAL] RSVP Notification ')
   end
 end
 

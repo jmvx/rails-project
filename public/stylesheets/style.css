@@ -118,7 +118,3 @@ th {
 td, th {
     padding:10px;
 }
-
-td.carpool, td.name {
-    width:140px;
-}

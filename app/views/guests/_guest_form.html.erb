@@ -1,5 +1,10 @@
-<%= form_for Guest.new do |f| %>
+<% @eventDate = Event.select(:date).last(1)[0].date %>
+<% @guest = Guest.new %>
+<%= form_for @guest do |f| %>
 <div id="form">
+    <div class="form_section top">
+        <h1 class="form_heading">The next event is on <%= @eventDate.strftime("%B %d, %Y") %> at 7 pm</h1>
+    </div>
     <div class="form_section">
         <h1 class="form_heading" style="display:inline; margin-right:10px;"><%= f.label :name, 'What is your name?'%></h1>
         <%= f.text_field :name, :required => true %>

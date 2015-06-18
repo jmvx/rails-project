@@ -1,25 +1,26 @@
 <%= render partial: "guests/guest_form", locals: { guest: @guest } %>
 
+<% @eventDate = Event.select(:date).last(1)[0].date %>
+<% guest_num_yes = Guest.where(response: 'Yes', rsvpDate: @eventDate).count %>
+<% guest_num_maybe = Guest.where(response: 'Maybe', rsvpDate: @eventDate).count %>
+
 <div id="guest_summary">
+
 <h1>Guest List</h1>
-<% if @guests.empty? %>
+<% if Guest.where(rsvpDate: @eventDate).empty? %>
 <p>There are no guests attending this event, yet!</p>
 <% else %>
-    <p>There 
-    <% if Guest.where(response: 'Yes').count > 1 %> 
-        are <%= Guest.where(response: 'Yes').count %> guests 
-    <% else %> 
-        is <%= Guest.where(response: 'Yes').count %> guest 
+    <p>
+    <% if guest_num_yes != 0 %>  
+        <% if guest_num_yes > 1 %> There are <%= guest_num_yes %> guests 
+        <% else %> There is <%= guest_num_yes %> guest <% end %> attending. 
     <% end %> 
-    attending. 
-    <% if Guest.where(response: 'Maybe').count != 0 %>
-        <% if Guest.where(response: 'Maybe').count > 1 %> 
-            There are <%= Guest.where(response: 'Maybe').count %> guests 
-        <% else %> 
-            There is <%= Guest.where(response: 'Maybe').count %> guest 
-        <% end %> 
-        who might attend.</p>
+    
+    <% if guest_num_maybe != 0 %>
+        <% if guest_num_maybe > 1 %> There are <%= guest_num_maybe %> guests 
+        <% else %> There is <%= guest_num_maybe %> guest <% end %> who might attend.
     <% end %>
+    </p>
 </div>
 <table>
 	<tr>
@@ -29,12 +30,16 @@
 		<th class="note">Note</th>
 	</tr>
 	<% @guests.each do |guest| %>
+    
+    <% if guest.rsvpDate == @eventDate %>
 	<tr>
 		<td class="name"> <%=  guest.name %> </td>
 		<td class="response"> <%=  guest.response %> </td>
 		<td class="carpool"> <%=  guest.carpool %> </td>
 		<td class="note"> <%=  guest.note %> </td>
 	</tr>
+    <% end %>
+    
 	<% end %>
 </table>
 <% end %>

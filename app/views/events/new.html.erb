@@ -1,0 +1,7 @@
+<%= form_for @event do |f| %>
+<div id="form">
+    <div class="form_section">When is the party?</div>
+    <%= f.date_select :date %>
+    <%= f.submit %>
+</div>
+<% end %>

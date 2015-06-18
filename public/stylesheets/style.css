@@ -58,6 +58,10 @@ a {
     margin-bottom:20px;
 }
 
+.form_section.top {
+    border-bottom:1px solid white;
+}
+
 #guest_summary {
     margin-bottom:10px;
     width:758px;

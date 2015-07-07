@@ -1,7 +1,8 @@
-<%= @guest.name %> just responded!
+<% @eventDate = Event.select(:date).last(1)[0].date %>
+<% guest_num_yes = Guest.where(response: 'Yes', rsvpDate: @eventDate).count %>
+<% guest_num_maybe = Guest.where(response: 'Maybe', rsvpDate: @eventDate).count %>
+
+Guest Count: <%= @eventDate.strftime("%B %d, %Y") %>
 ===============================================
- 
-- Name: <%= @guest.name %>
-- Response: <%= @guest.response %>
-- Carpool: <%= @guest.carpool %>
-- Notes: <%= @guest.note %>
+- <%= guest_num_yes %> plan on attending.
+- <%= guest_num_maybe %> might attend.

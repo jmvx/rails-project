@@ -1,11 +1,16 @@
+<% @eventDate = Event.select(:date).last(1)[0].date %>
+<% guest_num_yes = Guest.where(response: 'Yes', rsvpDate: @eventDate).count %>
+<% guest_num_maybe = Guest.where(response: 'Maybe', rsvpDate: @eventDate).count %>
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1><%= Guest.where(response: 'Yes').count %> plan on attending. </h1>
-    <h1><%= Guest.where(response: 'Maybe').count %> might attend. </h1> 
+    <h1><%= @eventDate.strftime("%B %d, %Y") %></h1>
+    <p><%= guest_num_yes %> plan on attending. </p>
+    <p><%= guest_num_maybe %> might attend. </p> 
     
     <%= image_tag attachments['DragonMedium.png'].url %>
     

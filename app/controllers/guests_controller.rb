@@ -17,7 +17,8 @@ class GuestsController < ApplicationController
 	end
   
   def show
-    @guest = Guest.find(params[:id])
+    # @guest = Guest.find(params[:id])
+    @guests = Guest.all
   end
 
 	private
